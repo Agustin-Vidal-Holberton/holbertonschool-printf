@@ -11,25 +11,25 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0;
-
-	if (!format)
-		return (-1);
+	int i = 0, count = 0;
 
 	va_start(args, format);
 
-	while (*format)
+	while (format && format[i] != '\0')
 	{
-		if (*format == '%' && *(format + 1))
+		if (format[i] == '%' && format[i + 1] == '\0')
+			break;
+		else if (format[i] == '%')
 		{
-			format++;
-			count += handle_format(*format, args);
+			count += handle_format(format[i + 1], args);
+			i++;
 		}
 		else
 		{
-			count += write(1, format, 1);
+			_putchar(format[i]);
+			count++;
 		}
-		format++;
+		i++;
 	}
 	va_end(args);
 	return (count);
