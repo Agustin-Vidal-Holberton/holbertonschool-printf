@@ -22,9 +22,7 @@ int handle_format(char specifier, va_list args)
 
 		count += print_string(str); }
 	else if (specifier == 'd' || specifier == 'i')
-	{	int num = va_arg(args, int);
-
-		count += print_number(num); }
+		count += print_number(va_arg(args, int), 10, 0);
 	else if (specifier == 'u')
 		count += print_number(va_arg(args, unsigned int), 10, 0);
 	else if (specifier == 'o')

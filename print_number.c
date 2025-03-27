@@ -4,26 +4,27 @@
 
 /**
  * print_number - Convierte un número a una cadena y la imprime.
- * @n: Número que se va a imprimir.
- *
+ * @num: Número que se va a imprimir.
+ * @base: Base numerico (10 = decimal, 8 = octal, 16 = hexadecimal).
+ * @uppercase: Si es 1, usa letras mayusculas en hexadecimal.
  * Return: Número de caracteres impresos.
  */
-int print_number(int n)
+int print_number(long num, int base, int uppercase)
 {
 	int count = 0;
+	char *digits = uppercase ? "0123456789ABCDEF" : "0123456789abcdef";
 
-	if (n < 0)
+	if (num < 0)
 	{
 		_putchar('-');
 		count++;
-		n = -n;
+		num = -num;
 	}
 
-	if (n / 10)
-	{
-		count += print_number(n / 10);
-	}
-	_putchar((n % 10) + '0');
+	if (num / base)
+		count += print_number(num / base, base, uppercase);
+	
+	_putchar(digits[num % base]);
 	count++;
 
 	return (count);
