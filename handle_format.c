@@ -36,11 +36,11 @@ int handle_format(char specifier, va_list args)
 	else if (specifier == 'X')
 		count += print_number(va_arg(args, unsigned int), 16, 1);
 	else if (specifier == 'p')
-		count += print_pointer(args);
+		count += print_pointer(va_arg(args, void *));
 	else if (specifier == '%')
 	{
 		_putchar('%');
-		count += 1;
+		count ++;
 	}
 	else
 	{

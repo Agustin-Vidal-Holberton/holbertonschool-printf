@@ -15,7 +15,7 @@ int print_string(char *str)
 		str = "(null)";
 
 	while (*str)
-		count += write(1, str++, 1);
+		count += _putchar(*str++);
 
 	return (count);
 }

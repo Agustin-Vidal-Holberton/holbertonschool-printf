@@ -13,17 +13,20 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0, count = 0;
 
-	if (format == NULL)
-		return (0);
+	if (!format)
+		return (-1);
 
 	va_start(args, format);
 
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%' && format[i + 1] == '\0')
-		{	break; }
-		else if (format[i] == '%')
+		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0')
+			{
+				va_end(arg);
+				return (-1);
+			}
 			count += handle_format(format[i + 1], args);
 			i++;
 		}
