@@ -1,0 +1,55 @@
+#NAME
+
+#_printf - Imprime texto en la salida estándar con formatos personalizados.
+
+#SYNOPSIS
+
+#include "main.h"
+#int _printf(const char *format, ...);
+#
+
+#DESCRIPTION
+
+#La función _printf imprime una cadena de texto en la salida estándar, similar a printf de la biblioteca estándar.
+#
+#Admite los siguientes formatos:
+#
+#%c - Imprime un solo carácter.
+#
+#%s - Imprime una cadena de caracteres.
+#
+#%d, %i - Imprime un número entero en base 10.
+#
+#%u - Imprime un número entero sin signo en base 10.
+#
+#%o - Imprime un número en base 8 (octal).
+#
+#%x - Imprime un número en base 16 (hexadecimal, minúsculas).
+#
+#%X - Imprime un número en base 16 (hexadecimal, mayúsculas).
+#
+#%p - Imprime un puntero en formato hexadecimal.
+#
+#%% - Imprime un signo de porcentaje %.
+#
+#No maneja banderas (+, -, 0, etc.), ancho de campo, precisión ni modificadores de longitud.
+#
+
+#RETURN VALUE
+
+#Devuelve la cantidad de caracteres impresos (sin contar el carácter nulo \0).
+#Si el parámetro format es NULL, la función retorna -1.
+#
+
+#EXAMPLES
+
+#
+#c
+#Copiar código
+#_printf("Hola, %s!\n", "mundo");
+#_printf("El número es: %d\n", 42);
+#_printf("Porcentaje: %%\n");
+
+#SEE ALSO
+
+#printf(3), write(2), putchar(3)
