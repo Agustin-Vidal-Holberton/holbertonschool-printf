@@ -39,7 +39,7 @@ int handle_format(char specifier, va_list args)
 		count += print_pointer(args);
 	else if (specifier == '%')
 	{
-		count += 0;
+		count += print_char('%');
 	}
 	else
 	{
