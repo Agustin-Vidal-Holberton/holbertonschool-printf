@@ -40,7 +40,7 @@ int handle_format(char specifier, va_list args)
 	else if (specifier == '%')
 	{
 		_putchar('%');
-		count ++;
+		count++;
 	}
 	else
 	{
